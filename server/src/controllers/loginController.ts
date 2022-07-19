@@ -9,7 +9,7 @@ class LoginController {
       <form method="POST">
         <div>
           <label>Email</label>
-          <input name="e" />
+          <input name="email" />
         </div>
         <div>
           <label>Password</label>
@@ -36,5 +36,11 @@ class LoginController {
     } else {
       res.send("Invalid email or password");
     }
+  }
+
+  @get("/logout")
+  getLogout(req: Request, res: Response) {
+    req.session = undefined;
+    res.redirect("/");
   }
 }
